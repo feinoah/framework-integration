@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+
+
+<!-- Rule 資料夾設定 -->
+<util:list id="scanPackage" value-type="java.lang.String">
+	<value>com.chttl.jee.test.ruletest</value>
+	<value>com.chttl.jee.rule.rules</value>
+</util:list>
+
+<!-- groovy rule engine 設定 -->
+<bean id="ruleEngine" class="com.chttl.jee.rule.core.GroovyRuleEngine" init-method="loadStatic">
+	<constructor-arg name="engineName" value="ruleEngine" />
+	<constructor-arg name="scanPackage" ref="scanPackage" />
+</bean>
+
+
+
+</beans>

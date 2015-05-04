@@ -1,0 +1,33 @@
+<jboss-deployment-structure>
+    <ear-subdeployments-isolated>false</ear-subdeployments-isolated>
+
+	<deployment>
+        <exclusions>
+			<module name="org.slf4j" />
+			<module name="org.slf4j.impl" />
+            <module name="org.joda.time" />
+        </exclusions>
+        <resources>
+            <resource-root path="lib/classes" />
+        </resources>
+        <dependencies>
+            <module name="org.jboss.remote-naming" export="true" />
+            <module name="org.hornetq" export="true" />
+        </dependencies>
+	</deployment>
+
+	<sub-deployment name="framework-web.war">
+	    <exclusions>
+			<module name="org.slf4j" />
+			<module name="org.slf4j.impl" />
+	    </exclusions>
+	</sub-deployment>
+	<sub-deployment name="framework-core.jar">
+	    <exclusions>
+			<module name="org.slf4j" />
+			<module name="org.slf4j.impl" />
+		</exclusions>
+	</sub-deployment>
+
+	
+</jboss-deployment-structure>
